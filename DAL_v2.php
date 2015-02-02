@@ -3,16 +3,16 @@
 /**
 	Clientes
 */
-	function insertClientes( $ativo, $validado, $iddistrito, $idconcelho, $idlocalidade, $datainsert, $nome, $nascimento, $email, $password, $morada, $nif, $telefone )
+	function insertClientes( $validado, $iddistrito, $idconcelho, $idlocalidade, $nome, $nascimento, $email, $password, $morada, $nif, $telefone )
 	{
-		$stringSQL = " INSERT INTO clientes ( id, ativo, validado, iddistrito, idconcelho, idlocalidade, datainsert, nome, nascimento, email, password, morada, nif, telefone ) VALUES ( null, '{$ativo}', '{$validado}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', '{$datainsert}', '{$nome}', '{$nascimento}', '{$email}', '{$password}', '{$morada}', '{$nif}', '{$telefone}' ) ";
+		$stringSQL = " INSERT INTO clientes ( id, validado, iddistrito, idconcelho, idlocalidade, datainsert, nome, nascimento, email, password, morada, nif, telefone ) VALUES ( null, '{$ativo}', '{$validado}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', now(), '{$nome}', '{$nascimento}', '{$email}', '{$password}', '{$morada}', '{$nif}', '{$telefone}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
 
-	function updateClientes( $id, $ativo, $validado, $iddistrito, $idconcelho, $idlocalidade, $datainsert, $nome, $nascimento, $email, $password, $morada, $nif, $telefone)
+	function updateClientes( $id, $ativo, $validado, $iddistrito, $idconcelho, $idlocalidade, $nome, $nascimento, $email, $password, $morada, $nif, $telefone)
 	{
-		$stringSQL = " UPDATE clientes SET ativo = '{$ativo}', validado = '{$validado}', iddistrito = '{$iddistrito}', idconcelho = '{$idconcelho}', idlocalidade = '{$idlocalidade}', datainsert = '{$datainsert}', nome = '{$nome}', nascimento = '{$nascimento}', email = '{$email}', password = '{$password}', morada = '{$morada}', nif = '{$nif}', telefone = '{$telefone}' ) ";
+		$stringSQL = " UPDATE clientes SET validado = '{$validado}', iddistrito = '{$iddistrito}', idconcelho = '{$idconcelho}', idlocalidade = '{$idlocalidade}', nome = '{$nome}', nascimento = '{$nascimento}', email = '{$email}', password = '{$password}', morada = '{$morada}', nif = '{$nif}', telefone = '{$telefone}' ) ";
 		$stringSQL .= " WHERE id = '{$id}' ";
 		$res = mysql_query($stringSQL);
 		return $res;
@@ -75,16 +75,16 @@
 /**
 	Reservas
 */
-	function insertReservas( $ativo, $validado, $idvivenda, $idcliente, $datainsert, $datainicio, $datafim, $valor )
+	function insertReservas( $ativo, $validado, $idvivenda, $idcliente, $datainicio, $datafim, $valor )
 	{
-		$stringSQL = " INSERT INTO reservas ( id, ativo, validado, idvivenda, idcliente, datainsert, datainicio, datafim, valor ) VALUES ( null, '{$ativo}', '{$validado}', '{$idvivenda}', '{idcliente}', '{$dateinsert}', '{$datainicio}', '{$datafim}', '{$valor}' ) ";
+		$stringSQL = " INSERT INTO reservas ( id, ativo, validado, idvivenda, idcliente, datainsert, datainicio, datafim, valor ) VALUES ( null, '{$ativo}', '{$validado}', '{$idvivenda}', '{idcliente}', now(), '{$datainicio}', '{$datafim}', '{$valor}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
 
-	function updateReservas( $id, $ativo, $validado, $datainsert )
+	function updateReservas( $id, $ativo, $validado )
 	{
-		$stringSQL = " UPDATE reservas SET ativo = '{$ativo}', validado = '{$validado}', idvivenda = '{$idvivenda}', idcliente = '{$idcliente}', datainsert = '{$datainsert}', datainicio = '{$datainicio}', datafim = '{$datafim}', valor = '{$valor}' ";
+		$stringSQL = " UPDATE reservas SET ativo = '{$ativo}', validado = '{$validado}', idvivenda = '{$idvivenda}', idcliente = '{$idcliente}'', datainicio = '{$datainicio}', datafim = '{$datafim}', valor = '{$valor}' ";
 		$stringSQL .= " WHERE id = '{$id}' ";
 		$res = mysql_query($stringSQL);
 		return $res;
@@ -93,16 +93,16 @@
 /**
 	Tipologia
 */
-	function insertTipologia( $ativo, $datainsert, $nome )
+	function insertTipologia( $ativo, $nome )
 	{
-		$stringSQL = " INSERT INTO tipologia ( id, ativo, datainsert, nome ) VALUES ( null, '{$ativo}', '{$dateinsert}', '{$nome}' ) ";
+		$stringSQL = " INSERT INTO tipologia ( id, ativo, datainsert, nome ) VALUES ( null, '{$ativo}', now(), '{$nome}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
 
-	function updateTipologia( $id, $ativo, $datainsert, $nome )
+	function updateTipologia( $id, $ativo, $nome )
 	{
-		$stringSQL = " UPDATE tipologia SET ativo = '{$ativo}', datainsert = '{$datainsert}', nome = '{$nome}' ";
+		$stringSQL = " UPDATE tipologia SET ativo = '{$ativo}', nome = '{$nome}' ";
 		$stringSQL .= " WHERE id = '{$id}' ";
 		$res = mysql_query($stringSQL);
 		return $res;
@@ -111,16 +111,16 @@
 /**
 	Users
 */
-	function insertUsers( $nome, $email, $password, $telefone, $nascimento )
+	function insertUsers( $ativo, $validado, $nome, $email, $password, $telefone, $nascimento )
 	{
-		$stringSQL = " INSERT INTO users ( id, dateinsert, nome, email, password, telefone, nascimento ) VALUES ( null, now(), '{$nome}', '{$email}', '{$password}', '{$telefone}', '{$nascimento}' ) ";
+		$stringSQL = " INSERT INTO users ( id, validado, datainsert, nome, email, password, telefone, nascimento ) VALUES ( null, '{$validado}', now(), '{$nome}', '{$email}', '{$password}', '{$telefone}', '{$nascimento}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
 
-	function updateUsers( $id, $ativo, $validado, $datainsert, $nome, $email, $password, $telefone, $nascimento )
+	function updateUsers( $id, $ativo, $validado, $nome, $email, $password, $telefone, $nascimento )
 	{
-		$stringSQL = " UPDATE users SET ativo = '{$ativo}', validado = '{$validado}', datainsert = '{$datainsert}', nome = '{$nome}', email = '{$email}', password = '{$password}', telefone = '{$telefone}', nascimento = '{$nascimento}' ";
+		$stringSQL = " UPDATE users SET ativo = '{$ativo}', validado = '{$validado}', nome = '{$nome}', email = '{$email}', password = '{$password}', telefone = '{$telefone}', nascimento = '{$nascimento}' ";
 		$stringSQL .= " WHERE id = '{$id}' ";
 		$res = mysql_query($stringSQL);
 		return $res;
@@ -165,16 +165,16 @@
 /**
 	Vivendas
 */
-	function insertVivendas( $ativo, $validado, $iduser, $idtipologia, $iddistrito, $idconcelho, $localidade, $datainsert, $titulo, $morada, $codigopostal, $latitude, $longitude, $observacao )
+	function insertVivendas( $ativo, $validado, $iduser, $idtipologia, $iddistrito, $idconcelho, $localidade, $titulo, $morada, $codigopostal, $latitude, $longitude, $observacao )
 	{
-		$stringSQL = " INSERT INTO vivendas ( id, ativo, validado, iduser, idtipologia, iddistrito, idconcelho, idlocalidade, datainsert, titulo, morada, codigopostal, latitude, longitude, observacao ) VALUES ( null, '{$ativo}', '{$validado}', '{$iduser}', '{$idtipologia}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', '{$datainsert}', '{$titulo}', '{$morada}', '{$codigopostal}', '{$latitude}', '{$longitude}', '{$observacao}' ) ";
+		$stringSQL = " INSERT INTO vivendas ( id, ativo, validado, iduser, idtipologia, iddistrito, idconcelho, idlocalidade, datainsert, titulo, morada, codigopostal, latitude, longitude, observacao ) VALUES ( null, '{$ativo}', '{$validado}', '{$iduser}', '{$idtipologia}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', now(), '{$titulo}', '{$morada}', '{$codigopostal}', '{$latitude}', '{$longitude}', '{$observacao}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
 
-	function updateVivendas( $id, $ativo, $validado, $iduser, $idtipologia, $iddistrito, $idconcelho, $localidade, $datainsert, $titulo, $morada, $codigopostal, $latitude, $longitude, $observacao )
+	function updateVivendas( $id, $ativo, $validado, $iduser, $idtipologia, $iddistrito, $idconcelho, $localidade, $titulo, $morada, $codigopostal, $latitude, $longitude, $observacao )
 	{
-		$stringSQL = " UPDATE vivendas SET ativo = '{$ativo}', validado = '{$validado}', iduser = '{$iduser}', idtipologia = '{$idtipologia}', iddistrito = '{$iddistrito}', idconcelho = '{$idconcelho}', idlocalidade = '{$idlocalidade}', datainsert = '{$datainsert}', titulo = '{$titulo}', morada = '{$morada}', codigopostal = '{$codigopostal}', latitude = '{$latitude}', longitude = '{$longitude}', observacao = '{$observacao}' ";
+		$stringSQL = " UPDATE vivendas SET ativo = '{$ativo}', validado = '{$validado}', iduser = '{$iduser}', idtipologia = '{$idtipologia}', iddistrito = '{$iddistrito}', idconcelho = '{$idconcelho}', idlocalidade = '{$idlocalidade}', titulo = '{$titulo}', morada = '{$morada}', codigopostal = '{$codigopostal}', latitude = '{$latitude}', longitude = '{$longitude}', observacao = '{$observacao}' ";
 		$stringSQL .= " WHERE id = '{$id}' ";
 		$res = mysql_query($stringSQL);
 		return $res;
