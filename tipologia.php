@@ -10,9 +10,9 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		 $nomeTitulo = $_POST['titulo'];
+		$nomeNome = $_POST['nome'];
 		
-		insertFacilities($nomeTitulo);
+		insertTipologia($nomeNome);
 		
 	}
 
@@ -26,11 +26,11 @@
  </head>
  <body>
 
- <h3>INSERT</h3>
+ <h3>Inserir Nome</h3>
  	<br>
  	<form action="" method="POST">
  		
-		<input type="text" name="titulo" placeholder="Titulo: ">
+		<input type="text" name="nome" placeholder="Nome: ">
 		<br>
 		<input type="submit" name="submit" placeholder="Submeter">
 
