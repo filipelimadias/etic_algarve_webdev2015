@@ -5,16 +5,16 @@
 
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		$iddistritoForm = $_POST["iddistrito"];
-		$idconcelhoForm = $_POST["idconcelho"];
-		$idlocalidadeForm = $_POST["idlocalidade"];
-		$nomeForm = $_POST["nome"];
-		$nascimentoForm = $_POST["nascimento"];
-		$emailForm = $_POST["email"];
-		$passwordForm = $_POST["password"];
-		$moradaForm = $_POST["morada"];
-		$nifForm = $_POST["nif"];
-		$telefoneForm = $_POST["telefone"];
+		$iddistrito = $_POST["iddistrito"];
+		$idconcelho = $_POST["idconcelho"];
+		$idlocalidade = $_POST["idlocalidade"];
+		$nome = $_POST["nome"];
+		$nascimento = $_POST["nascimento"];
+		$email = $_POST["email"];
+		$password = $_POST["password"];
+		$morada = $_POST["morada"];
+		$nif = $_POST["nif"];
+		$telefone = $_POST["telefone"];
 
 		insertClientes( $iddistrito, $idconcelho, $idlocalidade, $nome, $nascimento, $email, $password, $morada, $nif, $telefone );
 
