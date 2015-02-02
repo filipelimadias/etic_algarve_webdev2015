@@ -2,6 +2,12 @@
 
 /**
 	Clientes
+
+
+***asdsadasdas
+
+
+
 */
 	function insertClientes( $ativo, $validado, $iddistrito, $idconcelho, $idlocalidade, $datainsert, $nome, $nascimento, $email, $password, $morada, $nif, $telefone )
 	{
