@@ -3,7 +3,7 @@
 /**
 	Clientes
 */
-	function insertClientes( $validado, $iddistrito, $idconcelho, $idlocalidade, $nome, $nascimento, $email, $password, $morada, $nif, $telefone )
+	function insertClientes( $iddistrito, $idconcelho, $idlocalidade, $nome, $nascimento, $email, $password, $morada, $nif, $telefone )
 	{
 		$stringSQL = " INSERT INTO clientes ( id, validado, iddistrito, idconcelho, idlocalidade, datainsert, nome, nascimento, email, password, morada, nif, telefone ) VALUES ( null, '{$ativo}', '{$validado}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', now(), '{$nome}', '{$nascimento}', '{$email}', '{$password}', '{$morada}', '{$nif}', '{$telefone}' ) ";
 		$res = mysql_query($stringSQL);
