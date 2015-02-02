@@ -57,11 +57,11 @@
 /**
 	Facilities
 */
-	function insertFacilities( $ativo, $dateinsert, $titulo )
+	function insertFacilities( $titulo )
 	{
-		$stringSQL = " INSERT INTO facilities ( id, ativo, dateinsert, titulo ) VALUES ( null, '{$ativo}', '{$dateinsert}', '{$titulo}' ) ";
+		$stringSQL = " INSERT INTO facilities ( id, datainsert, titulo ) VALUES ( null, now(), '{$titulo}' ) ";
 		$res = mysql_query($stringSQL);
-		return $res;
+		return $stringSQL;
 	}
 
 	function updateFacilities( $id, $ativo, $dateinsert, $titulo )
