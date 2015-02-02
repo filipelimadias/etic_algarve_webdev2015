@@ -111,9 +111,9 @@
 /**
 	Users
 */
-	function insertUsers( $ativo, $validado, $datainsert, $nome, $email, $password, $telefone, $nascimento )
+	function insertUsers( $nome, $email, $password, $telefone, $nascimento )
 	{
-		$stringSQL = " INSERT INTO users ( id, ativo, validado, datainsert, nome, email, password, telefone, nascimento ) VALUES ( null, '{$ativo}', '{$validado}', '{$datainsert}', '{$nome}', '{$email}', '{$password}', '{$telefone}', '{$nascimento}' ) ";
+		$stringSQL = " INSERT INTO users ( id, dateinsert, nome, email, password, telefone, nascimento ) VALUES ( null, now(), '{$nome}', '{$email}', '{$password}', '{$telefone}', '{$nascimento}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
