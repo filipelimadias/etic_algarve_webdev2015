@@ -10,7 +10,7 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST")
 	{
-		$nomeTitulo = $_POST['titulo'];
+		 $nomeTitulo = $_POST['titulo'];
 		
 		insertFacilities($nomeTitulo);
 		
