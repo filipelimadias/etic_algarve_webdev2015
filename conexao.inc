@@ -3,7 +3,7 @@
 	error_reporting(E_ERROR | E_WARNING | E_PARSE);
 	ini_set("display", "off");
 
-	$servername="localhost";
+	$servername="localhost:8889";
 	$username="root";
 	$password="root";
 	$dbname="renting";
