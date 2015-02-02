@@ -93,9 +93,9 @@
 /**
 	Tipologia
 */
-	function insertTipologia( $ativo, $nome )
+	function insertTipologia( $nome )
 	{
-		$stringSQL = " INSERT INTO tipologia ( id, ativo, datainsert, nome ) VALUES ( null, '{$ativo}', now(), '{$nome}' ) ";
+		$stringSQL = " INSERT INTO tipologia ( id, datainsert, nome ) VALUES ( null, now(), '{$nome}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
