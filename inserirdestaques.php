@@ -16,7 +16,7 @@
 		$idlocalidadeForm = $_POST['idlocalidade'];
 		$totalimpressoesForm = $_POST['totalimpressoes'];
 		
-		insertDestaques( $idvivendas, $iddistrito, $idconcelho, $idlocalidade, $validado, $totalimpressoes, $contagem, $valor, $datainicio, $datafim )
+		insertDestaques( $idvivendas, $iddistrito, $idconcelho, $idlocalidade,  $totalimpressoes, $contagem, $valor, $datainicio, $datafim )
 		
 	}
 
