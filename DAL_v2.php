@@ -5,7 +5,7 @@
 */
 	function insertClientes( $iddistrito, $idconcelho, $idlocalidade, $nome, $nascimento, $email, $password, $morada, $nif, $telefone )
 	{
-		$stringSQL = " INSERT INTO clientes ( id, validado, iddistrito, idconcelho, idlocalidade, datainsert, nome, nascimento, email, password, morada, nif, telefone ) VALUES ( null, '{$ativo}', '{$validado}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', now(), '{$nome}', '{$nascimento}', '{$email}', '{$password}', '{$morada}', '{$nif}', '{$telefone}' ) ";
+		$stringSQL = " INSERT INTO clientes ( id, iddistrito, idconcelho, idlocalidade, datainsert, nome, nascimento, email, password, morada, nif, telefone ) VALUES ( null, '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', now(), '{$nome}', '{$nascimento}', '{$email}', '{$password}', '{$morada}', '{$nif}', '{$telefone}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
@@ -39,16 +39,16 @@
 /**
 	Epocas
 */
-	function insertEpocas( $ativo, $dateinsert, $datainicio, $datafim, $valor )
+	function insertEpocas( $datainicio, $datafim, $valor )
 	{
-		$stringSQL = " INSERT INTO epocas ( id, ativo, dateinsert, datainicio, datafim, valor ) VALUES ( null, '{$ativo}', '{$dateinsert}', '{$datainicio}', '{$datafim}', '{$valor}' ) ";
+		$stringSQL = " INSERT INTO epocas ( id, ativo, dateinsert, datainicio, datafim, valor ) VALUES ( null, '{$ativo}', now(), '{$datainicio}', '{$datafim}', '{$valor}' ) ";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
 
 	function updateEpocas( $id, $ativo, $dateinsert, $datainicio, $datafim, $valor )
 	{
-		$stringSQL = " UPDATE epocas SET ativo = '{$ativo}', dateinsert = '{$dateinsert}', datainicio = '{$datainicio}', datafim = '{$datafim}', valor = '{$valor}' ";
+		$stringSQL = " UPDATE epocas SET ativo = '{$ativo}', datainicio = '{$datainicio}', datafim = '{$datafim}', valor = '{$valor}' ";
 		$stringSQL .= " WHERE id = '{$id}' ";
 		$res = mysql_query($stringSQL);
 		return $res;
