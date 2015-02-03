@@ -3,7 +3,7 @@
 	require('conexao.inc');
 	require('DAL_v2.php');
 
-	if($_SERVER['REQUEST_METHOD'] == "POST")
+	if( $_SERVER['REQUEST_METHOD'] == "POST" )
 	{
 		$iddistritoForm = $_POST["iddistrito"];
 		$idconcelhoForm = $_POST["idconcelho"];
@@ -17,7 +17,6 @@
 		$telefoneForm = $_POST["telefone"];
 
 		insertClientes( $iddistritoForm, $idconcelhoForm, $idlocalidadeForm, $nomeForm, $nascimentoForm, $emailForm, $passwordForm, $moradaForm, $nifForm, $telefoneForm );
-
 	}
 
 ?>
