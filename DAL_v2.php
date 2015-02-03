@@ -21,9 +21,9 @@
 /**
 	Destaques
 */
-	function insertDestaques( $idvivendas, $iddistrito, $idconcelho, $idlocalidade, $ $totalimpressoes, $contagem, $valor, $datainicio, $datafim )
+	function insertDestaques( $idvivendas, $iddistrito, $idconcelho, $idlocalidade, $totalimpressoes, $contagem, $valor, $datainicio, $datafim )
 	{
-		$stringSQL = " INSERT INTO destaques ( id, idvivendas, iddistrito, idconcelho, idlocalidade, validado, totalimpressoes, contagem, valor, datainicio, datafim ) VALUES ( null, '{$idvivendas}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', '{$validado}', '{$totalimpressoes}', '{$contagem}', '{$valor}', '{$datainicio}', '{$datafim}' )";
+		$stringSQL = " INSERT INTO destaques ( id, idvivendas, iddistrito, idconcelho, idlocalidade, totalimpressoes, contagem, valor, datainicio, datafim ) VALUES ( null, '{$idvivendas}', '{$iddistrito}', '{$idconcelho}', '{$idlocalidade}', '{$totalimpressoes}', '{$contagem}', '{$valor}', '{$datainicio}', '{$datafim}' )";
 		$res = mysql_query($stringSQL);
 		return $res;
 	}
